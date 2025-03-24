@@ -84,6 +84,12 @@ From your project root
 cd client
 ng serve --open
 
+## Security Notes
+
+- Passwords are hashed with bcrypt.
+- JWT tokens are stored securely in HTTP-only cookies or local storage.
+- Input validation is performed server-side and client-side.
+
 # How to contribute to this project
 
 - Fork this repo
