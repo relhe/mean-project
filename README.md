@@ -15,10 +15,10 @@ Welcome to the official repository of **Explore Canada project** , a fully integ
 
 ```
 mean-app/
-├── client/       # Angular frontend
+├── client/
 │   ├── src/
 │   └── ...
-├── server/       # Node + Express backend
+├── server/
 │   ├── models/
 │   ├── routes/
 │   ├── controllers/
