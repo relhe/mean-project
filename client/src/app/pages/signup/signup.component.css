@@ -1,0 +1,109 @@
+.signup-container {
+    max-width: 400px;
+    margin: 3rem auto;
+    padding: 2rem;
+    border-radius: 12px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    font-family: "Segoe UI", sans-serif;
+    text-align: center;
+}
+
+.signup-container h2 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    color: #2c3e50;
+}
+
+.signup-container p {
+    margin-bottom: 2rem;
+    color: #555;
+}
+
+.signup-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.form-group {
+    text-align: left;
+}
+
+.form-group label {
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+    display: block;
+    color: #333;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+button[type="submit"] {
+    padding: 0.8rem;
+    background-color: #007bff;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+.redirect {
+    margin-top: 1rem;
+    font-size: 0.95rem;
+}
+
+.redirect a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.redirect a:hover {
+    text-decoration: underline;
+}
+.error {
+    color: #c0392b;
+    font-size: 0.9rem;
+    margin-top: 0.3rem;
+}
+
+.strength-wrapper {
+    margin-top: 0.5rem;
+}
+
+.strength-bar {
+    width: 100%;
+    height: 8px;
+    background-color: #eee;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.strength-bar .bar {
+    height: 100%;
+    transition: width 0.3s ease-in-out;
+}
+
+.bar.weak {
+    background-color: #e74c3c;
+}
+
+.bar.medium {
+    background-color: #f39c12;
+}
+
+.bar.strong {
+    background-color: #27ae60;
+}

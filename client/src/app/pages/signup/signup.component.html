@@ -1,0 +1,146 @@
+<section class="signup-container">
+    <h2>Create an Account</h2>
+    <form [formGroup]="signupForm" (ngSubmit)="onSubmit()" class="signup-form">
+        <div class="form-group">
+            <label for="firstName">First Name</label>
+            <input
+                id="firstName"
+                formControlName="firstName"
+                placeholder="John"
+            />
+            <div
+                *ngIf="f['firstName'].touched && f['firstName'].invalid"
+                class="error"
+            >
+                First name is required.
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="lastName">Last Name</label>
+            <input id="lastName" formControlName="lastName" placeholder="Doe" />
+            <div
+                *ngIf="f['lastName'].touched && f['lastName'].invalid"
+                class="error"
+            >
+                Last name is required.
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="gender">Gender</label>
+            <select id="gender" formControlName="gender">
+                <option value="" disabled>Select gender</option>
+                <option value="M">Male</option>
+                <option value="F">Female</option>
+                <option value="Other">Other</option>
+            </select>
+            <div
+                *ngIf="f['gender'].touched && f['gender'].invalid"
+                class="error"
+            >
+                Gender is required.
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="birthday">Date of Birth</label>
+            <input id="birthday" type="date" formControlName="birthday" />
+            <div
+                *ngIf="f['birthday'].touched && f['birthday'].invalid"
+                class="error"
+            >
+                Birthday is required.
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input
+                id="email"
+                type="email"
+                formControlName="email"
+                autocomplete="username"
+            />
+            <div *ngIf="f['email'].touched && f['email'].errors" class="error">
+                <span *ngIf="f['email'].errors['required']"
+                    >Email is required.</span
+                >
+                <span *ngIf="f['email'].errors['email']"
+                    >Invalid email format.</span
+                >
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input
+                id="phone"
+                formControlName="phone"
+                placeholder="5141234567"
+            />
+            <div *ngIf="f['phone'].touched && f['phone'].invalid" class="error">
+                Phone is required.
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input
+                id="password"
+                type="password"
+                formControlName="password"
+                (input)="onPasswordInput()"
+                autocomplete="new-password"
+            />
+            <div
+                *ngIf="f['password'].touched && f['password'].errors"
+                class="error"
+            >
+                <span *ngIf="f['password'].errors['required']"
+                    >Password is required.</span
+                >
+                <span *ngIf="f['password'].errors['minlength']"
+                    >Minimum 6 characters required.</span
+                >
+            </div>
+
+            <!-- Strength Indicator -->
+            <div
+                class="strength-wrapper"
+                *ngIf="f['password'].touched && f['password'].value && !f['password'].errors?.['required']"
+            >
+                <div class="strength-bar">
+                    <div
+                        class="bar"
+                        [ngClass]="{
+                            weak: passwordStrength <= 1,
+                            medium: passwordStrength == 2,
+                            strong: passwordStrength >= 3
+                        }"
+                        [style.width.%]="(passwordStrength + 1) * 20"
+                    ></div>
+                </div>
+                <small *ngIf="feedback">{{ feedback }}</small>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="confirmPassword">Confirm Password</label>
+            <input
+                id="confirmPassword"
+                type="password"
+                formControlName="confirmPassword"
+                autocomplete="new-password"
+            />
+            <div
+                *ngIf="f['confirmPassword'].touched && signupForm.errors?.['mismatch']"
+                class="error"
+            >
+                Passwords do not match.
+            </div>
+        </div>
+
+        <button type="submit">Sign Up</button>
+    </form>
+</section>
